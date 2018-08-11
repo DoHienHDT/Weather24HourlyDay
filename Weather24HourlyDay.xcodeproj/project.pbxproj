@@ -14,6 +14,14 @@
 		804CFEFD211E767F003C7CC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804CFEFB211E767F003C7CC5 /* LaunchScreen.storyboard */; };
 		804CFF08211E767F003C7CC5 /* Weather24HourlyDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF07211E767F003C7CC5 /* Weather24HourlyDayTests.swift */; };
 		804CFF13211E767F003C7CC5 /* Weather24HourlyDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF12211E767F003C7CC5 /* Weather24HourlyDayUITests.swift */; };
+		804CFF24211E7793003C7CC5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF23211E7793003C7CC5 /* DataService.swift */; };
+		804CFF26211E77A5003C7CC5 /* Forecastday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF25211E77A5003C7CC5 /* Forecastday.swift */; };
+		804CFF28211E7BA4003C7CC5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF27211E7BA4003C7CC5 /* TableViewCell.swift */; };
+		804CFF2B211E7FD1003C7CC5 /* ExtensionTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF2A211E7FD1003C7CC5 /* ExtensionTimeInterval.swift */; };
+		804CFF2D211E7FDE003C7CC5 /* ExtensionUIimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF2C211E7FDE003C7CC5 /* ExtensionUIimageView.swift */; };
+		804CFF2F211E870C003C7CC5 /* WeatherHourly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF2E211E870C003C7CC5 /* WeatherHourly.swift */; };
+		804CFF31211E88D1003C7CC5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF30211E88D1003C7CC5 /* CollectionViewCell.swift */; };
+		804CFF33211E9026003C7CC5 /* ExtensionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CFF32211E9026003C7CC5 /* ExtensionCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		804CFF0E211E767F003C7CC5 /* Weather24HourlyDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Weather24HourlyDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		804CFF12211E767F003C7CC5 /* Weather24HourlyDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather24HourlyDayUITests.swift; sourceTree = "<group>"; };
 		804CFF14211E767F003C7CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		804CFF23211E7793003C7CC5 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		804CFF25211E77A5003C7CC5 /* Forecastday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecastday.swift; sourceTree = "<group>"; };
+		804CFF27211E7BA4003C7CC5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		804CFF2A211E7FD1003C7CC5 /* ExtensionTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTimeInterval.swift; sourceTree = "<group>"; };
+		804CFF2C211E7FDE003C7CC5 /* ExtensionUIimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIimageView.swift; sourceTree = "<group>"; };
+		804CFF2E211E870C003C7CC5 /* WeatherHourly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHourly.swift; sourceTree = "<group>"; };
+		804CFF30211E88D1003C7CC5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		804CFF32211E9026003C7CC5 /* ExtensionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				804CFEF2211E767E003C7CC5 /* AppDelegate.swift */,
-				804CFEF4211E767E003C7CC5 /* ViewController.swift */,
+				804CFF20211E7701003C7CC5 /* Model */,
+				804CFF21211E770D003C7CC5 /* View */,
+				804CFF22211E7712003C7CC5 /* Controller */,
+				804CFF29211E7FAF003C7CC5 /* Utilies + Extension */,
 				804CFEF6211E767E003C7CC5 /* Main.storyboard */,
 				804CFEF9211E767F003C7CC5 /* Assets.xcassets */,
 				804CFEFB211E767F003C7CC5 /* LaunchScreen.storyboard */,
@@ -123,6 +142,43 @@
 				804CFF14211E767F003C7CC5 /* Info.plist */,
 			);
 			path = Weather24HourlyDayUITests;
+			sourceTree = "<group>";
+		};
+		804CFF20211E7701003C7CC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				804CFF23211E7793003C7CC5 /* DataService.swift */,
+				804CFF25211E77A5003C7CC5 /* Forecastday.swift */,
+				804CFF2E211E870C003C7CC5 /* WeatherHourly.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		804CFF21211E770D003C7CC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				804CFF27211E7BA4003C7CC5 /* TableViewCell.swift */,
+				804CFF30211E88D1003C7CC5 /* CollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		804CFF22211E7712003C7CC5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				804CFEF4211E767E003C7CC5 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		804CFF29211E7FAF003C7CC5 /* Utilies + Extension */ = {
+			isa = PBXGroup;
+			children = (
+				804CFF2A211E7FD1003C7CC5 /* ExtensionTimeInterval.swift */,
+				804CFF2C211E7FDE003C7CC5 /* ExtensionUIimageView.swift */,
+				804CFF32211E9026003C7CC5 /* ExtensionCollectionView.swift */,
+			);
+			path = "Utilies + Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804CFF28211E7BA4003C7CC5 /* TableViewCell.swift in Sources */,
+				804CFF2F211E870C003C7CC5 /* WeatherHourly.swift in Sources */,
+				804CFF31211E88D1003C7CC5 /* CollectionViewCell.swift in Sources */,
+				804CFF2B211E7FD1003C7CC5 /* ExtensionTimeInterval.swift in Sources */,
+				804CFF33211E9026003C7CC5 /* ExtensionCollectionView.swift in Sources */,
+				804CFF2D211E7FDE003C7CC5 /* ExtensionUIimageView.swift in Sources */,
+				804CFF24211E7793003C7CC5 /* DataService.swift in Sources */,
+				804CFF26211E77A5003C7CC5 /* Forecastday.swift in Sources */,
 				804CFEF5211E767E003C7CC5 /* ViewController.swift in Sources */,
 				804CFEF3211E767E003C7CC5 /* AppDelegate.swift in Sources */,
 			);
