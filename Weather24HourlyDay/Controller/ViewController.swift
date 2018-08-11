@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UICollectionViewDelegate, UICollectionViewDataSource{
     let padding: CGFloat = 8
-    let numberOfItem: CGFloat = 24
+    let numberOfItem: CGFloat = 4
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var tempcLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     var weatherday: [WeatherDay] = []
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DataService.shared.getDataFromApiClosure { [unowned self] (forecastDay) in
             self.nameLabel.text = forecastDay.name
             self.tempcLabel.text = String(Int(forecastDay.temp_c)) + "º"
+            self.todayLabel.text = String(forecastDay.localtime_epoch.getDaysOfWeek())
             self.weatherday = forecastDay.weatherDay
             self.tableview.reloadData()
         }
@@ -56,8 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.maxtemcLabel.text = weatherhourly[indexPath.row].tempC
-        cell.timeLabel.text = weatherhourly[indexPath.row].time
+        cell.maxtemcLabel.text = weatherhourly[indexPath.row].tempC + "º"
+        cell.timeLabel.text = (weatherhourly[indexPath.row].time.gethourOfWeek(dataJ: Double(weatherhourly[indexPath.row].time)!)) + "PM"
         cell.photoImage.imageUrlString(urlString: weatherhourly[indexPath.row].value, indexpath: indexPath)
         return cell
     }
