@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UICollectionViewDelegate, UICollectionViewDataSource{
     let padding: CGFloat = 8
-    let numberOfItem: CGFloat = 4
+    let numberOfItem: CGFloat = 24
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var weatherhourly: [WeatherHourlyDay] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         collectionview.backgroundColor = UIColor.clear
         tableview.backgroundColor = UIColor.clear
         DataService.shared.getDataFromApiClosure { [unowned self] (forecastDay) in
@@ -47,8 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.dateLabel.text = weatherday[indexPath.row].date_epoch.getDaysOfWeek()
-        cell.maxtemcLabel.text = String(Int(weatherday[indexPath.row].maxtemp_c))
-        cell.mintempcLabel.text = String(Int(weatherday[indexPath.row].mintemp_c))
+        cell.maxtemcLabel.text = String(Int(weatherday[indexPath.row].maxtemp_c)) + "º"
+        cell.mintempcLabel.text = String(Int(weatherday[indexPath.row].mintemp_c)) + "º"
         cell.photoImage.imageUrlString(urlString: weatherday[indexPath.row].icon, indexpath: indexPath)
         return cell
     }
@@ -59,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.maxtemcLabel.text = weatherhourly[indexPath.row].tempC + "º"
-        cell.timeLabel.text = (weatherhourly[indexPath.row].time.gethourOfWeek(dataJ: Double(weatherhourly[indexPath.row].time)!)) + "PM"
+        cell.timeLabel.text = weatherhourly[indexPath.row].time.gethourOfWeek(dataJ: weatherhourly[indexPath.row].time) + "PM"
         cell.photoImage.imageUrlString(urlString: weatherhourly[indexPath.row].value, indexpath: indexPath)
         return cell
     }

@@ -8,10 +8,10 @@
 
 import UIKit
 extension String {
-    func gethourOfWeek(dataJ: Double) -> String {
+    func gethourOfWeek(dataJ: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "m"
-        let dayOfWeek = Date(timeIntervalSince1970: dataJ)
+        dateFormatter.dateFormat = "HH:m"
+        let dayOfWeek = Date(timeIntervalSince1970: TimeInterval(dataJ)!)
         return (dataJ != nil) ? " \(dateFormatter.string(from: dayOfWeek))" : "Date Invalid"
     }
 }
