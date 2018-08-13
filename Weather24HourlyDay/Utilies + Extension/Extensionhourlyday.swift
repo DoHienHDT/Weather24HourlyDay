@@ -11,9 +11,9 @@ extension String {
     func gethourOfWeek(time: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm a"
-        var time = "-1"
+        var time = "2"
         if let timeOfday = Int(self) {
-           time = String(timeOfday/100) + "giờ"
+            time =  String(timeOfday/100) + "h"
         }
         return time
         
