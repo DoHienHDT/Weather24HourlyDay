@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var tempcLabel: UILabel!
+    @IBOutlet weak var maxtenpcLabel: UILabel!
+    @IBOutlet weak var mintempCLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     var weatherday: [WeatherDay] = []
     var weatherhourly: [WeatherHourlyDay] = []
@@ -28,6 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.tempcLabel.text = String(Int(forecastDay.temp_c)) + "º"
             self.todayLabel.text = String(forecastDay.localtime_epoch.getDaysOfWeek())
             self.weatherday = forecastDay.weatherDay
+            self.maxtenpcLabel.text = String(Int(self.weatherday[0].maxtemp_c)) + "º"
+            self.mintempCLabel.text = String(Int(self.weatherday[0].mintemp_c)) + "º"
             self.tableview.reloadData()
         }
         DataService.shared.getDataFromApiHourlyDay { [unowned self] (hourlyDay) in
@@ -42,15 +46,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherday.count
+        return weatherday.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.dateLabel.text = weatherday[indexPath.row].date_epoch.getDaysOfWeek()
-        cell.maxtemcLabel.text = String(Int(weatherday[indexPath.row].maxtemp_c)) + "º"
-        cell.mintempcLabel.text = String(Int(weatherday[indexPath.row].mintemp_c)) + "º"
-        cell.photoImage.imageUrlString(urlString: weatherday[indexPath.row].icon, indexpath: indexPath)
+        cell.dateLabel.text = weatherday[indexPath.row + 1].date_epoch.getDaysOfWeek()
+        cell.maxtemcLabel.text = String(Int(weatherday[indexPath.row + 1].maxtemp_c)) + "º"
+        cell.mintempcLabel.text = String(Int(weatherday[indexPath.row + 1].mintemp_c)) + "º"
+        cell.photoImage.imageUrlString(urlString: weatherday[indexPath.row + 1].icon, indexpath: indexPath)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.maxtemcLabel.text = weatherhourly[indexPath.row].tempC + "º"
-        cell.timeLabel.text = weatherhourly[indexPath.row].time.gethourOfWeek(dataJ: weatherhourly[indexPath.row].time) + "PM"
+        cell.timeLabel.text = weatherhourly[indexPath.row].time.gethourOfWeek(time: weatherhourly[indexPath.row].time)
         cell.photoImage.imageUrlString(urlString: weatherhourly[indexPath.row].value, indexpath: indexPath)
         return cell
     }

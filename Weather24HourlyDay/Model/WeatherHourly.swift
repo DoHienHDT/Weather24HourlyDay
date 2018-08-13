@@ -25,6 +25,7 @@ struct WeatherHourlyDay {
     var value: String
     init(dictionary: DICT) {
         time = dictionary["time"] as? String ?? "-1"
+        print(time)
         tempC = dictionary["tempC"] as? String ?? "-1"
         let weatherIconUrl = dictionary["weatherIconUrl"] as? [DICT] ?? []
         let zero = weatherIconUrl[0]
