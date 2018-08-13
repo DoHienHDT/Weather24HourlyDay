@@ -9,11 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UICollectionViewDelegate, UICollectionViewDataSource{
-    let padding: CGFloat = 8
-    let numberOfItem: CGFloat = 24
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var tempcLabel: UILabel!
     @IBOutlet weak var maxtenpcLabel: UILabel!
     @IBOutlet weak var mintempCLabel: UILabel!
@@ -27,6 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableview.backgroundColor = UIColor.clear
         DataService.shared.getDataFromApiClosure { [unowned self] (forecastDay) in
             self.nameLabel.text = forecastDay.name
+            self.countryLabel.text = forecastDay.country
             self.tempcLabel.text = String(Int(forecastDay.temp_c)) + "º"
             self.todayLabel.text = String(forecastDay.localtime_epoch.getDaysOfWeek())
             self.weatherday = forecastDay.weatherDay

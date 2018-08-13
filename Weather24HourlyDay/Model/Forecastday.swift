@@ -9,12 +9,14 @@
 import UIKit
 class Forecastday {
     var name: String
+    var country: String
     var temp_c: Double
     var localtime_epoch: TimeInterval
     var weatherDay: [WeatherDay] = []
     init(dictionary: DICT) {
         let location = dictionary["location"] as? DICT ?? [:]
         name = location["name"] as? String ?? "-1"
+        country = location["country"] as? String ?? "-1"
         localtime_epoch = location["localtime_epoch"] as? TimeInterval ?? -1
         let current = dictionary["current"] as? DICT ?? [:]
         temp_c = current["temp_c"] as? Double ?? -1
