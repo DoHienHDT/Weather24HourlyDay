@@ -65,6 +65,7 @@
 		804CFF2E211E870C003C7CC5 /* WeatherHourly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHourly.swift; sourceTree = "<group>"; };
 		804CFF30211E88D1003C7CC5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		804CFF32211E9026003C7CC5 /* ExtensionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionView.swift; sourceTree = "<group>"; };
+		B3087F09219D7E7C004204F4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 		804CFEE6211E767E003C7CC5 = {
 			isa = PBXGroup;
 			children = (
+				B3087F09219D7E7C004204F4 /* README.md */,
 				804CFEF1211E767E003C7CC5 /* Weather24HourlyDay */,
 				804CFF06211E767F003C7CC5 /* Weather24HourlyDayTests */,
 				804CFF11211E767F003C7CC5 /* Weather24HourlyDayUITests */,
